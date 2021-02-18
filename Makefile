@@ -4,7 +4,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-PROJECT_NAME = granary
+PROJECT_NAME = ampitheatre
 CONTAINER_NAME = meroe
 
 #################################################################################
@@ -38,6 +38,7 @@ docker_image .docker_image_record/$(PROJECT_NAME): Dockerfile .docker_image_reco
 	@DOCKER_BUILDKIT=1
 	@docker build \
 		-t $(PROJECT_NAME) \
+		--build-arg folder=$(PROJECT_NAME) \
 		.
 	@touch .docker_image_record/$(PROJECT_NAME)
 	@echo 'Built Docker Image for $(PROJECT_NAME)'
